@@ -1,12 +1,12 @@
 // ==UserScript==
 // @name       Call log search fix
 // @namespace  Drake
-// @version    0.4.0
+// @version    0.4.1
 // @description  Call log search is no longer too tall. Added in highlighting and hiding.
 // @match      http://dintranet*/*og*earch
 // @copyright  2012+, WH, LT
-// @updateURL    https://drive.google.com/uc?export=download&id=0BzY5Uk5_ea2YazdVeGJvYmVUdGs
-// @downloadURL    https://drive.google.com/uc?export=download&id=0BzY5Uk5_ea2YazdVeGJvYmVUdGs
+// @updateURL    https://github.com/vdeogmer/Call-log-search-fix/raw/master/Call%20log%20search%20fix.tamper.js
+// @downloadURL    https://github.com/vdeogmer/Call-log-search-fix/raw/master/Call%20log%20search%20fix.tamper.js
 // @grant GM_getValue
 // @grant GM_setValue
 // @grant GM_deleteValue
