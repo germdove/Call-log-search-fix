@@ -5,8 +5,8 @@
 // @description  Call log search is no longer too tall. Added in highlighting and hiding.
 // @match      http://dintranet*/*og*earch
 // @copyright  2012+, WH, LT
-// @updateURL    https://github.com/vdeogmer/Call-log-search-fix/raw/master/Call%20log%20search%20fix.tamper.js
-// @downloadURL    https://github.com/vdeogmer/Call-log-search-fix/raw/master/Call%20log%20search%20fix.tamper.js
+// @updateURL    https://raw.githubusercontent.com/vdeogmer/Call-log-search-fix/master/Call%20log%20search%20fix.tamper.js
+// @downloadURL    https://raw.githubusercontent.com/vdeogmer/Call-log-search-fix/master/Call%20log%20search%20fix.tamper.js
 // @grant GM_getValue
 // @grant GM_setValue
 // @grant GM_deleteValue
