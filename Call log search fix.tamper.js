@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name       Call log search fix
 // @namespace  Drake
-// @version    0.3.8
+// @version    0.4.0
 // @description  Call log search is no longer too tall. Added in highlighting and hiding.
 // @match      http://dintranet*/*og*earch
 // @copyright  2012+, WH, LT
@@ -40,7 +40,10 @@ $("section:first-child div div:nth-child(3) table tbody tr:first-child, header,f
 $("#DeptGroup").parent().parent().after('<tr><td><label title="">Reset Default Department:</label></td><td><input id="btnReset" type="button" value="Reset"></td></tr>');
 $("#openCalls").parent().parent().after('<tr><td><label title="">Hide 908210:</label></td><td><input id="hide908210" type="checkbox" ></td></tr>');
 $("#hide908210").parent().parent().after('<tr><td><label title="">Hide search term<em>(separate words or phrases with commas)</em>:</label> </td><td><input id="hideAny" type="checkbox"> <input id="hideSearch" type="text"></td></tr>');
-$("#hideSearch").val(GM_getValue("hideSearch"));
+$("#hideSearch").parent().parent().after('<tr><td><label title="">Hide Subject column:</label> </td><td><input id="hideSubject" type="checkbox"></td></tr>')
+$("#hideSubject").prop("checked",GM_getValue("hideSubject"));
+
+
 
 document.getElementById("useDateRange").click();
 document.getElementById("openCalls").click();
@@ -107,9 +110,12 @@ $("#btnSearch").on("click", function(){
         $("td").removeAttr("title");
         totalRecords = $("#records").text();
         colors();
+        hideSubjects()
+
     },1500);
     $("#hide908210").prop("checked",0);
     $("#hideAny").prop("checked",0);
+    //do stuff
     colors();
 });
 
@@ -159,9 +165,20 @@ $("#hide908210").on("click", function(){
     }
 });
 
-$("#hideSearch").on("focusout", function(){
-    GM_setValue("hideSearch",$("#hideSearch").val());
+$("#hideSubject").change(function(){
+    GM_setValue("hideSubject",$("#hideSubject").prop("checked"));
+    hideSubjects()
 });
+
+function hideSubjects(){
+    if($("#hideSubject").prop("checked")){
+        $('table tr').find('td:eq(4),th:eq(4)').hide();
+        $("#list_catsubj").hide()
+    } else {
+        $('table tr').find('td:eq(4),th:eq(4)').show();
+        $("#list_catsubj").show()
+    }
+}
 
 $("#hideAny").on("click", function(){
     if ($("#hideAny").prop("checked")){
